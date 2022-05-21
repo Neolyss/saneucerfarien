@@ -1,5 +1,7 @@
 package model;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import java.io.File;
 import java.util.ArrayList;
 
@@ -13,15 +15,21 @@ public class Question {
     private String level;
 
     public Question() throws Exception {
-        //TODO Extract data for a random question and
-        // put the corresponding data in the class fields
         ArrayList<String> list = lsDir(treeQuestion(null));
         theme = list.get((int)(Math.random() * list.size()));
 
         list = lsDir(treeQuestion(new String[]{theme}));
         category = list.get((int)(Math.random() * list.size()));
 
-        File question = treeQuestion(new String[] {theme, category});
+        System.out.println("theme "+ theme+" / category "+category);
+        System.out.println(treeQuestion(new String[] {theme, category}).exists());
+        System.out.println(treeQuestion(new String[] {theme, category}).getName());
+        System.out.println(treeQuestion(new String[] {theme, category}).getAbsolutePath());
+
+        DataQuestion dataQuestion = new ObjectMapper().readValue(
+                treeQuestion(new String[] {theme, category}), DataQuestion.class);
+
+
 
     }
 
@@ -88,13 +96,13 @@ public class Question {
                 path += pathDir[i];
 
             }
-            if (pathDir.length == 2) path += "\\question.json";
+            if (pathDir.length == 2) path += "\\questions.json";
         } else { //Linux
             for (int i = 0; i < pathDir.length; ++i){
                 if (i < pathDir.length) path += "/";
                 path += pathDir[i];
             }
-            if (pathDir.length == 2) path += "/question.json";
+            if (pathDir.length == 2) path += "/questions.json";
         }
         return new File(path);
     }
