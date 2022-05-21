@@ -1,6 +1,7 @@
 package model;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.jayway.restassured.path.json.JsonPath;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -10,9 +11,10 @@ public class Question {
     private String category;
     private int id;
     private String question;
-    private String[] propositions;
+    private ArrayList<String> propositions;
     private String answer;
     private String level;
+    private String anecdote;
 
     public Question() throws Exception {
         ArrayList<String> list = lsDir(treeQuestion(null));
@@ -29,7 +31,7 @@ public class Question {
         DataQuestion dataQuestion = new ObjectMapper().readValue(
                 treeQuestion(new String[] {theme, category}), DataQuestion.class);
 
-
+        // ici Estelle
 
     }
 
@@ -65,11 +67,11 @@ public class Question {
         this.question = question;
     }
 
-    public String[] getPropositions() {
+    public ArrayList<String> getPropositions() {
         return propositions;
     }
 
-    public void setPropositions(String[] propositions) {
+    public void setPropositions(ArrayList<String> propositions) {
         this.propositions = propositions;
     }
 
@@ -79,6 +81,22 @@ public class Question {
 
     public void setAnswer(String answer) {
         this.answer = answer;
+    }
+
+    public String getLevel() {
+        return level;
+    }
+
+    public void setLevel(String level) {
+        this.level = level;
+    }
+
+    public String getAnecdote() {
+        return anecdote;
+    }
+
+    public void setAnecdote(String anecdote) {
+        this.anecdote = anecdote;
     }
 
     /**
@@ -115,9 +133,4 @@ public class Question {
         return listDir;
     }
 
-    public static void main(String[] args) throws Exception {
-        Question q = new Question();
-        System.out.println("theme : "+ q.theme);
-        System.out.println("category : "+ q.category);
-    }
 }

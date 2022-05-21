@@ -85,35 +85,206 @@ class Quizz {
 @JsonIgnoreProperties(ignoreUnknown = true)
 class Fr {
     @JsonProperty("débutant")
-    ArrayList<Object> debutant = new ArrayList<Object>();
+    ArrayList<Debutant> debutant = new ArrayList<Debutant>();
 
     @JsonProperty("confirmé")
-    ArrayList<Object> confirme = new ArrayList<Object>();
+    ArrayList<Confirme> confirme = new ArrayList<Confirme>();
 
     @JsonProperty("expert")
-    ArrayList<Object> expert = new ArrayList<Object>();
+    ArrayList<Expert> expert = new ArrayList<Expert>();
 
-    public ArrayList<Object> getDebutant() {
+    public ArrayList<Debutant> getDebutant() {
         return debutant;
     }
 
-    public void setDebutant(ArrayList<Object> debutant) {
+    public void setDebutant(ArrayList<Debutant> debutant) {
         this.debutant = debutant;
     }
 
-    public ArrayList<Object> getConfirme() {
+    public ArrayList<Confirme> getConfirme() {
         return confirme;
     }
 
-    public void setConfirme(ArrayList<Object> confirme) {
+    public void setConfirme(ArrayList<Confirme> confirme) {
         this.confirme = confirme;
     }
 
-    public ArrayList<Object> getExpert() {
+    public ArrayList<Expert> getExpert() {
         return expert;
     }
 
-    public void setExpert(ArrayList<Object> expert) {
+    public void setExpert(ArrayList<Expert> expert) {
         this.expert = expert;
+    }
+}
+@JsonIgnoreProperties(ignoreUnknown = true)
+class Confirme{
+    @JsonProperty("id")
+    public int id;
+
+    @JsonProperty("question")
+    public String question;
+
+    @JsonProperty("propositions")
+    public ArrayList<String> propositions;
+
+    @JsonProperty("réponse")
+    public String reponse;
+
+    @JsonProperty("anecdote")
+    public String anecdote;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getQuestion() {
+        return question;
+    }
+
+    public void setQuestion(String question) {
+        this.question = question;
+    }
+
+    public ArrayList<String> getPropositions() {
+        return propositions;
+    }
+
+    public void setPropositions(ArrayList<String> propositions) {
+        this.propositions = propositions;
+    }
+
+    public String getReponse() {
+        return reponse;
+    }
+
+    public void setReponse(String reponse) {
+        this.reponse = reponse;
+    }
+
+    public String getAnecdote() {
+        return anecdote;
+    }
+
+    public void setAnecdote(String anecdote) {
+        this.anecdote = anecdote;
+    }
+}
+@JsonIgnoreProperties(ignoreUnknown = true)
+class Debutant{
+    @JsonProperty("id")
+    public int id;
+
+    @JsonProperty("question")
+    public String question;
+
+    @JsonProperty("propositions")
+    public ArrayList<String> propositions;
+
+    @JsonProperty("réponse")
+    public String reponse;
+
+    @JsonProperty("anecdote")
+    public String anecdote;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getQuestion() {
+        return question;
+    }
+
+    public void setQuestion(String question) {
+        this.question = question;
+    }
+
+    public ArrayList<String> getPropositions() {
+        return propositions;
+    }
+
+    public void setPropositions(ArrayList<String> propositions) {
+        this.propositions = propositions;
+    }
+
+    public String getReponse() {
+        return reponse;
+    }
+
+    public void setReponse(String reponse) {
+        this.reponse = reponse;
+    }
+
+    public String getAnecdote() {
+        return anecdote;
+    }
+
+    public void setAnecdote(String anecdote) {
+        this.anecdote = anecdote;
+    }
+}
+@JsonIgnoreProperties(ignoreUnknown = true)
+class Expert{
+    @JsonProperty("id")
+    public int id;
+
+    @JsonProperty("question")
+    public String question;
+
+    @JsonProperty("propositions")
+    public ArrayList<String> propositions;
+
+    @JsonProperty("réponse")
+    public String reponse;
+
+    @JsonProperty("anecdote")
+    public String anecdote;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getQuestion() {
+        return question;
+    }
+
+    public void setQuestion(String question) {
+        this.question = question;
+    }
+
+    public ArrayList<String> getPropositions() {
+        return propositions;
+    }
+
+    public void setPropositions(ArrayList<String> propositions) {
+        this.propositions = propositions;
+    }
+
+    public String getReponse() {
+        return reponse;
+    }
+
+    public void setReponse(String reponse) {
+        this.reponse = reponse;
+    }
+
+    public String getAnecdote() {
+        return anecdote;
+    }
+
+    public void setAnecdote(String anecdote) {
+        this.anecdote = anecdote;
     }
 }
