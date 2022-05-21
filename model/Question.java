@@ -31,7 +31,44 @@ public class Question {
         DataQuestion dataQuestion = new ObjectMapper().readValue(
                 treeQuestion(new String[] {theme, category}), DataQuestion.class);
 
-        // ici Estelle
+        int numberQuestion;
+
+        switch ((int)(Math.random() * 3)) {
+
+            case 0 :
+
+                level= "debutant";
+                ArrayList<Debutant> qDebutant = dataQuestion.getQuizz().getFr().getDebutant();
+                numberQuestion = (int)(Math.random() * qDebutant.size());
+                id = qDebutant.get(numberQuestion).getId();
+                question = qDebutant.get(numberQuestion).getQuestion();
+                propositions = qDebutant.get(numberQuestion).getPropositions();
+                answer = qDebutant.get(numberQuestion).getReponse();
+                anecdote = qDebutant.get(numberQuestion).getAnecdote();
+
+            case 1 :
+
+                level = "confirme";
+                ArrayList<Confirme> qConfirme = dataQuestion.getQuizz().getFr().getConfirme();
+                numberQuestion = (int)(Math.random() * qConfirme.size());
+                id = qConfirme.get(numberQuestion).getId();
+                question = qConfirme.get(numberQuestion).getQuestion();
+                propositions = qConfirme.get(numberQuestion).getPropositions();
+                answer = qConfirme.get(numberQuestion).getReponse();
+                anecdote = qConfirme.get(numberQuestion).getAnecdote();
+
+            default :
+
+                level = "expert";
+                ArrayList<Expert> qExpert = dataQuestion.getQuizz().getFr().getExpert();
+                numberQuestion = (int)(Math.random() * qExpert.size());
+                id = qExpert.get(numberQuestion).getId();
+                question = qExpert.get(numberQuestion).getQuestion();
+                propositions = qExpert.get(numberQuestion).getPropositions();
+                answer = qExpert.get(numberQuestion).getReponse();
+                anecdote = qExpert.get(numberQuestion).getAnecdote();
+
+        }
 
     }
 
